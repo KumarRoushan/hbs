@@ -1,3 +1,32 @@
-<h1>Welcome To My Ruby Blogs showing the post controller</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<p>I have checked the file to push to Heroku with different site</p>
+<h1>Welcome To Roushan's Ruby Blog</h1>
+<hr>
+<h1>Here is the list of posts</h1>
+<table border="1" cellspacing="0px">
+	<hr bordercolor="green">
+	<td>Id</td>
+	<td>Title</td>
+	<td>More Details</td>
+	<!--
+	<td>Category Id</td>
+		<td>Author Id</td>
+		<td>Created At</td>
+		<td>Updated At</td>-->
+	</hr>
+
+	<% @post.each do |item|%>
+	<tr>
+		<td><%= item.id%></td>
+		<td><%= item.title%></td>
+		<td><%= link_to "Show Details",item%></td>
+		<!--
+		<td><%= item.body%></td>
+				<td><%= item.category_id%></td>
+				<td><%= item.author_id%></td>
+				<td><%= item.created_at.strftime("%m %d %Y")%></td>
+				<td><%= item.updated_at.strftime("%m %d %Y")%></td>-->
+		
+	</tr>
+	<%end%>
+</table>
+
+<%= link_to "Add New Post", new_post_path%>

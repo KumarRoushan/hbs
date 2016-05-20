@@ -1,1 +1,23 @@
 <h1>Showing all the posts</h1>
+
+<table border="1" cellspacing="0px">
+	<hr bordercolor="green">
+	<td>Id</td>
+	<td>Title</td>
+	<td>Comment</td>
+	<td>Category Id</td>
+	<td>Author Id</td>
+	<td>Created At</td>
+	<td>Last Updated At</td>
+	</hr>
+	<tr>
+		<td><%= @post.id%></td>
+		<td><%= @post.title%></td>
+		<td><%= @post.body%></td>
+		<td><%= @post.category_id%></td>
+		<td><%= @post.author_id%></td>
+		<td><%= @post.created_at.strftime("%m %d %Y")%></td>
+		<td><%= @post.updated_at.strftime("%m %d %Y")%></td>
+	</tr>
+
+</table>

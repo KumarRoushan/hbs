@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Myrubyblog</title>
+		<title>Roushan's Ruby Blog</title>
 	</head>
-	<body>
+	<body bgcolor="lightgreen">
+		<%flash.each do |key,value|%>
+		<p>
+			<%= value%>
+		</p>
+		<%end%>
 		<%= yield %>
 	</body>
 </html>
