@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'categories/new'
   get 'categories/show'
   get 'welcome/index'
-
+  #get 'posts/edit'
+  
   resources :posts
   resources :category
   

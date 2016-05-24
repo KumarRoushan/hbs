@@ -18,15 +18,17 @@
 		<td><%= item.id%></td>
 		<td><%= item.title%></td>
 		<td><%= link_to "Show Details",item%></td>
+		
 		<!--
 		<td><%= item.body%></td>
 				<td><%= item.category_id%></td>
 				<td><%= item.author_id%></td>
 				<td><%= item.created_at.strftime("%m %d %Y")%></td>
 				<td><%= item.updated_at.strftime("%m %d %Y")%></td>-->
-		
 	</tr>
 	<%end%>
 </table>
 
 <%= link_to "Add New Post", new_post_path%>
+
+

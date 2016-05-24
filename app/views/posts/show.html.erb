@@ -9,6 +9,7 @@
 	<td>Author Id</td>
 	<td>Created At</td>
 	<td>Last Updated At</td>
+	<td>Action</td>
 	</hr>
 	<tr>
 		<td><%= @post.id%></td>
@@ -18,6 +19,6 @@
 		<td><%= @post.author_id%></td>
 		<td><%= @post.created_at.strftime("%m %d %Y")%></td>
 		<td><%= @post.updated_at.strftime("%m %d %Y")%></td>
+		<td><%= link_to "Edit Post", edit_post_path(:id => @post.id)%></td>
 	</tr>
-
 </table>
