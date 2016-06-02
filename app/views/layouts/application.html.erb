@@ -2,13 +2,49 @@
 <html>
 	<head>
 		<title>Roushan's Ruby Blog</title>
-	</head>
-	<body bgcolor="lightgreen">
+		<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		</head>
+<body bgcolor="lightgreen">
 		<%flash.each do |key,value|%>
 		<p>
 			<%= value%>
 		</p>
 		<%end%>
-		<%= yield %>
-	</body>
+<div ng-app = "mainApp" ng-controller = "studentController">
+	Enter First Name :
+	<input type="text" ng-model="student.firstName"/>
+	Enter Last 	Name :
+	<input type="text" ng-model="student.lastName"/><br />
+	Search Subject By Name : <input type="text" ng-model="studentName"/>
+	<p ng-bind="student.fullName() | uppercase"/>
+	
+	<li ng-repeat ="subject in student.subjects | filter: studentName | orderBy:subject.marks">
+	{{"Subject : " + subject.name + "  Marks : " + subject.marks}}
+	</li>
+</div>
+<script>
+	var mainApp1 = angular.module("mainApp", []);
+	mainApp1.controller('studentController', function($scope) {
+		$scope.student = {
+			firstName : "Roushan123",
+			lastName : "Kumar",
+			subjects:[
+				{name:'Physics', marks:70},
+				{name:'Chemistry', marks:80},
+				{name:'Physics', marks:81},
+				{name:'English', marks:82},
+				{name:'Kannada', marks:10},
+				{name:'Hindi', marks:70},
+			],
+			
+			fullName : function() {
+				var studentObj;
+				studentObj = $scope.student;
+				return studentObj.firstName + " " + studentObj.lastName;
+			}
+		};
+	}); 
+</script>
+<%= yield %>
+</body>
 </html>
